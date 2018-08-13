@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    
-    <!-- NEW !!! >>> -->
+    <!-- when we request a certain page this is where that component is loaded in -->
     <router-view/>
-    <!-- <<< NEW !!! -->
+    <!-- routes are set up in index.js in router folder -->
 
     <!-- existing otto code >>> -->
     <!-- header -->
-    <div id="header">
-        <!-- nav bar goes here - should be component <Navbar /> -->
+    <!-- <div id="header">
         <div class="topnav">
-            <nav class="main-nav"> <!-- "scoping" using regular css -->
+            <nav class="main-nav">
                 <a class="active" href="#home">otto</a>  
                 <a href="#signin">Sign In</a>
                 <a href="#signup">Sign Up</a>
@@ -20,22 +18,22 @@
             </nav>
         </div>
 
-    </div>
+    </div> -->
 
     <!-- hero -->
-    <div class="hero">
+    <!-- <div class="hero">
         <h2>{{ tagline }}</h2>
     </div>
 
     <div class="topnav" id="btm">
         <a href="#getting-started">Quick Start</a>
-    </div>
+    </div> -->
 
     <!-- blurb -->
-    <h3>{{ description }}</h3>
+    <!-- <h3>{{ description }}</h3> -->
     
     <!-- reviews - dummy data - should be component <Reviews /> -->
-    <div class="reviews">
+    <!-- <div class="reviews">
         <h2>What people are saying about OTTO:</h2>
         <input type="text" v-model="searchTerm">
         <p> search reviews </p>
@@ -43,37 +41,9 @@
             <h3 class="rvw-title chip cat">{{ rvw.title }}</h3>
             <h3 class="rvw-body chip lab">{{ `${rvw.body} ${rvw.body} ${rvw.body}` | snippet }}</h3>
         </div>
-    </div>
+    </div> -->
     
-    <!-- "sign up" / demo -->
-    <div class="content-block">
-
-        <div id="sign-up">
-            <h2>sign up</h2>
-            <p>
-              First name
-              <input type="text" v-model="nameF">
-            </p>
-            <p>
-                Last name
-                <input type="text" v-model="nameL">
-            </p>
-            <p>
-                Username
-                <input type="text" v-model="username">
-            </p>
-            <p>Hi, {{ nameF }}! We're glad you're here.</p>
-            <button type="submit">sign me up</button>
-        </div> <!-- close #sign-up -->
-        <p>or</p>
-        <div id="sign-in">
-            <!-- <p>{{ greet() }}</p> -->
-            <input type="text" :value="username">
-            <input type="text" :value="password">
-            <button type="submit">sign me in</button>
-        </div> <!-- close #sign-in -->
-        
-    </div>
+    
 
     <div id="getting-started" class="content-block">
         <p>What would you like to do?</p>
@@ -226,14 +196,10 @@ export default {
   // existing otto code data >>>
   data () {
     return {
-      title: "otto",
+      // title: "otto",
       tagline: "make finding content easy",
       description: "OTTO is a tool to help you develop a taxonomy to apply to the information architecture of your website to enhance the browse navigation experience of the website for the end user.",
       apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
-      username: 'Username',
-      password: 'Password',
-      nameF: 'First Name',
-      nameL: 'Last Name',
       top: '#app',
       backToGettingStarted: '#getting-started',
       backToCreate: '#create',
@@ -450,7 +416,8 @@ ul {
     background-color: #333;
   }
   
-  .topnav a {
+  .topnav a,
+  .topnav ul li {
     float: right;
     color: #0EBFE9;
     /* text-align: center; */
@@ -459,19 +426,22 @@ ul {
     font-size: 1em;
   }
   
-  .topnav a:hover {
+  .topnav a:hover,
+  .topnav ul li:hover {
     background-color: #ff4c4c;
     color: white;
   }
   
-  .topnav a.active {
+  .topnav a.active,
+  .topnav ul li.active {
     background-color: #ff4c4c;
     color: white;
     font-size: 1.9em;
     float: left;
   }
 
-  #btm a {
+  #btm a,
+  #btm ul li {
     display: inline-block;
     float: none;
     text-align: center;
@@ -533,7 +503,7 @@ button {
 }
 
 /* CREATE A NEW TAXONOMY */
-.content-block {
+.content-block { /* not sure why but vue does not seem to like this cls */
     width: 90%;
     /* height: 100%; *//* seems to just fix the width and make it inflexible */
     margin: 100% 0;

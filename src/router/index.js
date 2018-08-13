@@ -1,9 +1,18 @@
+// import infrastructure stuff below
 import Vue from 'vue'
 // existing otto code import >>>
 // import App from './App.vue' // not working, may not be nec
 // <<< existing otto code import
 import Router from 'vue-router'
+
+// import components you need
 import Home from '@/components/Home'
+import About from '@/components/About'
+import Blog from '@/components/Blog'
+import Contact from '@/components/Contact'
+import SignUp from '@/components/SignUp'
+import SignIn from '@/components/SignIn'
+import QuickStart from '@/components/QuickStart'
 
 // existing otto code filter >>> 
 // create global filter
@@ -30,6 +39,8 @@ Vue.filter('snippet', value => { // snippet being post.title
 // })
 // <<< existing otto code for new vue
 
+
+
 // NEW ROUTING MAGIC BELOW
 
 Vue.use(Router)
@@ -37,9 +48,39 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/', // i.e. home
+      path: '/', // i.e. home otherwise forward slash whatever ('/About', etc.)
       name: 'Home',
       component: Home
-    }
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
+    },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component: Blog
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
+    },
+    {
+      path: '/signup',
+      name: 'SignUp',
+      component: SignUp
+    },
+    {
+      path: '/signin',
+      name: 'SignIn',
+      component: SignIn
+    },
+    {
+      path: '/quickstart',
+      name: 'QuickStart',
+      component: QuickStart
+    },
   ]
 })

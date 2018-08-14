@@ -6,17 +6,7 @@
     
     <div id="header">
         <!-- nav bar goes here - should be component <Navbar /> -->
-        <Navbar /> <!-- pass down from app -->
-        <!-- <div class="topnav">
-            <nav class="main-nav">
-                <router-link class="active" to="/">{{ title }}</router-link>  
-                <router-link to="/signin">Sign In</router-link>
-                <router-link to="/signup">Sign Up</router-link>
-                <router-link to="/contact">Contact</router-link>
-                <router-link to="/blog">Blog</router-link>
-                <router-link to="/about">About</router-link>
-            </nav>
-        </div> -->
+        <Navbar /> 
     </div>
 
     <!-- hero -->
@@ -27,7 +17,6 @@
     <div class="topnav" id="btm">
         <!-- <a href="#getting-started">Quick Start</a> -->
         <router-link to="/quickstart">Quick Start</router-link>
-
     </div>
 
     <!-- blurb -->
@@ -48,26 +37,14 @@
 </template>
 
 <script>
-// existing otto code imports >>>
-// restore // import Navbar from './Navbar'
-// restore // import Reviews from './Reviews'
-// restore // import AllCategories from './AllCategories'
-// restore // import AllLabels from './AllLabels'
-// <<< existing otto code imports
 import axios from 'axios'
 import Navbar from '@/components/Navbar'
 
 export default {
   name: 'App',
-  // existing otto code components >>>
   components: {
     Navbar
-    // restore // Reviews,
-    // restore // AllCategories,
-    // restore // AllLabels,
   },
-  // <<< existing otto code components
-  // existing otto code data >>>
   data () {
     return {
       // title: "otto",

@@ -13,6 +13,11 @@ import Contact from '@/components/Contact'
 import SignUp from '@/components/SignUp'
 import SignIn from '@/components/SignIn'
 import QuickStart from '@/components/QuickStart'
+import Create from '@/components/Create'
+import Update from '@/components/Update'
+import TypeIn from '@/components/TypeIn'
+import Scrape from '@/components/Scrape'
+import Import from '@/components/Import'
 
 // existing otto code filter >>> 
 // create global filter
@@ -82,5 +87,30 @@ export default new Router({
       name: 'QuickStart',
       component: QuickStart
     },
+    {
+      path: '/create',
+      name: 'Create',
+      component: Create
+    },
+    {
+      path: '/update',
+      name: 'Update',
+      component: Update
+    },
+    {
+      path: '/typein',
+      name: 'TypeIn',
+      component: TypeIn
+    },
+    {
+      path: '/scrape',
+      name: 'Scrape',
+      component: Scrape
+    },
+    {
+      path: '/import',
+      name: 'Import',
+      component: Import
+    }
   ]
 })

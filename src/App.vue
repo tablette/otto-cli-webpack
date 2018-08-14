@@ -1,151 +1,11 @@
 <template>
   <div id="app">
-    <!-- when we request a certain page this is where that component is loaded in -->
+    <!-- when we request a certain page this is where that component is loaded in --><!-- routes are set up in index.js in router folder -->
     <router-view/>
-    <!-- routes are set up in index.js in router folder -->
 
-    <!-- existing otto code >>> -->
-    <!-- header -->
-    <!-- <div id="header">
-        <div class="topnav">
-            <nav class="main-nav">
-                <a class="active" href="#home">otto</a>  
-                <a href="#signin">Sign In</a>
-                <a href="#signup">Sign Up</a>
-                <a href="#contact">Contact</a>
-                <a href="#blog">Blog</a>
-                <a href="#about">About</a>
-            </nav>
-        </div>
 
-    </div> -->
 
-    <!-- hero -->
-    <!-- <div class="hero">
-        <h2>{{ tagline }}</h2>
-    </div>
-
-    <div class="topnav" id="btm">
-        <a href="#getting-started">Quick Start</a>
-    </div> -->
-
-    <!-- blurb -->
-    <!-- <h3>{{ description }}</h3> -->
-    
-    <!-- reviews - dummy data - should be component <Reviews /> -->
-    <!-- <div class="reviews">
-        <h2>What people are saying about OTTO:</h2>
-        <input type="text" v-model="searchTerm">
-        <p> search reviews </p>
-        <div v-for="rvw in filteredRvws" :key="rvw.id">
-            <h3 class="rvw-title chip cat">{{ rvw.title }}</h3>
-            <h3 class="rvw-body chip lab">{{ `${rvw.body} ${rvw.body} ${rvw.body}` | snippet }}</h3>
-        </div>
-    </div> -->
-    
-    
-
-    <div id="getting-started" class="content-block">
-        <p>What would you like to do?</p>
-        <a href="#create"><button>Create a new taxonomy</button></a>
-        <a href="#edit"><button>Edit an existing taxonomy</button></a>
-        <p><a :href="top">Go back</a></p>
-        <p><a :href="top">Top</a></p>
-    </div>
-
-    <!-- Create a new taxonomy -->
-    <div id="create" class="content-block">
-        <h2>Create a new taxonomy</h2>            
-        <p>OK! How?</p>
-        <ul>
-            <li><a href="#typein">Type in OTTO directly</a></li>
-            <li><a href="#import">Import from a file</a></li>
-            <li><a href="#scrape">Scrape from a site</a></li>
-        </ul>
-        <p><a :href="backToGettingStarted">Go back</a></p>
-        <p><a :href="top">Top</a></p>
-    </div>
-
-    <!-- Create a new taxonomy - typein -->
-    <div id="typein" class="content-block">
-        <h2>Type in OTTO directly</h2>
-        <input class="typein-input" v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
-        <input class="typein-input" v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
-                
-        <p class="spacer-gentop"></p>
-        
-        <!-- attempt #1 at cRud: render directly in App -->
-        <!-- <h2>Your categories:</h2>
-        <ul class="typein-list">
-            <li class="chip cat" v-for="(category, index) in categories" :key="index">{{ category }} 
-                <span class="editbtn" v-on:click="categories.splice(index, 1, editItem())">&#10000;</span>
-                <span class="closebtn" v-on:click="categories.splice(index, 1)">&times;</span>
-            </li>
-        </ul>
-        <p class="spacer-gentop"></p>
-        
-        <h2>Your labels:</h2>
-        <ul class="typein-list">
-            <li class="chip lab" v-for="(label, index) in labels" :key="index">{{ label }}
-            <span class="editbtn" v-on:click="labels.splice(index, 1, editItem())">&#10000;</span>
-            <span class="closebtn" v-on:click="labels.splice(index, 1)">&times;</span></li>
-        </ul>
-        <p class="spacer-gentop"></p> -->
-
-        <!-- attempt #2 at cRud: render in App from what should be components AllCategories and AllLabels -->
-        <!-- all categories -->
-        <div :categories="categories" :editItem="editItem" @nbr="showNumber">
-            <!--  -->
-               <div id="all-categories">
-                <h2>All Categories</h2>
-                <!-- cycle through cateogries -->
-                <span><input type="text" v-model="searchTermCat"> filter </span>
-                <div v-for="(cat, index) in filteredCats" :key="index">
-                    <!-- and render to browser -->
-                    <span class="chip cat">
-                        <!-- show number (for now just prints an asterism to the DOM and the number to the console) -->
-                        <span @click="number(index)">&#8258;</span>
-                        <!-- display -->
-                        {{ cat }}
-                        <!-- edit -->
-                        <span class="editbtn" v-on:click="categories.splice(index, 1, editItem())">&#10000;</span>
-                        <!-- delete -->
-                        <span class="closebtn" v-on:click="categories.splice(index, 1)">&times;</span>
-                    </span>
-                </div>
-                <p class="spacer-gentop"></p>
-            </div>
-        </div>
-        <!-- all labels -->
-        <div :labels="labels" :editItem="editItem" @nbr="showNumber">
-            <div id="all-labels">
-                <h2>All Labels</h2>
-                <!-- cycle through labels -->
-                <span><input type="text" v-model="searchTermLab"> filter </span>
-                <div v-for="(lab, index) in filteredLabs" :key="index">
-                    <!-- and render to browser -->
-                    <span class="chip lab">
-                        <!-- show number (for now just prints a flower to the DOM and the number to the console) -->
-                        <span @click="number(index)">&#8277;</span>
-                        <!-- display -->
-                        {{ lab }}
-                        <!-- edit -->
-                        <span class="editbtn" v-on:click="labels.splice(index, 1, editItem())">&#10000;</span>
-                        <!-- delete -->
-                        <span class="closebtn" v-on:click="labels.splice(index, 1)">&times;</span>
-                    </span>
-                </div>
-                <p class="spacer-gentop"></p>    
-            </div>
-        </div>
-        
-        <p class="spacer-bottom"></p>
-        
-        <p><a :href="backToCreate">Go back</a></p>
-        <p><a :href="top">Top</a></p>
-    </div>
-
-    <div id="import" class="content-block">
+    <!-- <div id="import" class="content-block">
         <h2>Import from a file</h2>            
         <p>{{ apology }}</p>
         <p><a :href="backToCreate">Go back</a></p>
@@ -164,36 +24,21 @@
         <p>{{ apology }}</p>
         <p><a :href="backToGettingStarted">Go back</a></p>
         <p><a :href="top">Top</a></p>
-    </div>
+    </div> -->
             
     <p><a :href="top">Top</a></p>
-    <!-- <<< existing otto code -->
-
-
 
   </div>
 </template>
 
 <script>
-// existing otto code imports >>>
-// restore // import Navbar from './Navbar'
-// restore // import Reviews from './Reviews'
-// restore // import AllCategories from './AllCategories'
-// restore // import AllLabels from './AllLabels'
-// <<< existing otto code imports
 import axios from 'axios'
 
 export default {
   name: 'App',
-  // existing otto code components >>>
   components: {
-    // restore // Navbar,
-    // restore // Reviews,
-    // restore // AllCategories,
-    // restore // AllLabels,
+      //
   },
-  // <<< existing otto code components
-  // existing otto code data >>>
   data () {
     return {
       // title: "otto",
@@ -201,20 +46,18 @@ export default {
       description: "OTTO is a tool to help you develop a taxonomy to apply to the information architecture of your website to enhance the browse navigation experience of the website for the end user.",
       apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
       top: '#app',
-      backToGettingStarted: '#getting-started',
-      backToCreate: '#create',
-      categories: [],
-      labels: [],
+      // backToGettingStarted: '#getting-started',
+      // backToCreate: '#create',
+      // categories: [],
+      // labels: [],
       // includesCategories: false,
       // doesNotIncludeCategories: true,
       rvws: [],
       searchTerm: '',
-      searchTermCat: '',
-      searchTermLab: ''
+      // searchTermCat: '',
+      // searchTermLab: ''
     }
   },
-  // <<< existing otto code data
-  // existing otto code methods >>>
   methods: {
     // // for greeting on landing
     // greet(){
@@ -232,60 +75,17 @@ export default {
     // // just for quick access to ready-made event properties
     // logEvent(e){ // e = optional parameter: event object - call whatever you want e.g. e OR evt OR event
     //     console.log(e);
-    // },
-    // // for typein - toggling - could be useful for preventing duplicate categories and labels
-    // toggleY(){
-    //     this.includesCategories = true
-    // },
-    // toggleN(){
-    //     this.includesCategories = false
-    // },
-    // // for typein - from an input element, add a CATEGORY
-    addCategory(event){
-        this.categories.push(event.target.value) // push to categories array
-        event.target.value = '' // clear input
-    },
-    // // for typein - from an input element, add a label 
-    addLabel(event){
-        this.labels.push(event.target.value) // push to labels array
-        event.target.value = '' // clear input
-        // console.log("at least enter works") // test
-    },
-    editItem(){
-        // attempt 1 - use a simple prompt
-        let editedText = prompt("Change to:");
-        return editedText;
-        // attempt 2 - add input field, and on click capture input, remove input field and return input
-        // ...
-    },
-    showNumber(payload){
-        // need to pass back to DOM in AllCategories.vue
-        console.log(payload + 1)
-    }
+    // }
   },
-  // <<< existing otto code methods
     computed: {
-        filteredRvws(){
+        filteredRvws(){ // for rvws
             return this.rvws.filter(rvw => {
                 return rvw.body.match(this.searchTerm) || rvw.title.match(this.searchTerm)
                 // where match is built in method
             })
-        },
-        filteredCats(){
-            console.log(this.categories)
-            return this.categories.filter(categ => {
-                return categ.match(this.searchTermCat)
-            })
-        },
-        filteredLabs(){
-            console.log(this.labels)
-            return this.labels.filter(label => {
-                return label.match(this.searchTermLab)
-            })
         }
-
     },
-    created(){
+    created(){ // for rvws
         axios.get('https://jsonplaceholder.typicode.com/posts/') // returns a promise
         .then(response => {
             console.log(response)
@@ -298,6 +98,7 @@ export default {
 </script>
 
 <style>
+
 /* CSS RESET */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 

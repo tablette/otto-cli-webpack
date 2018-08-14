@@ -3,7 +3,7 @@
         <h1>Scrape from a Site</h1>
         <Navbar />
         <p class="spacer-gentop"></p>
-        <p>Sorry, we haven't learned that trick yet.</p>
+        <p>Sorry, we haven't learned that trick yet.</p><!-- ideally, pass down apology -->
     </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
     },
     data(){
         return{
-
+            // 
         }
     }
 }

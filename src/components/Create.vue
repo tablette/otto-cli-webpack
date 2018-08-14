@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Create a New Taxonomy</h1>
+        <h1>Create New</h1>
         <Navbar />
         <p class="spacer-gentop"></p>
         <router-link to="/typein">Type in OTTO directly</router-link>  
@@ -19,7 +19,7 @@ export default {
     },
     data(){
         return{
-
+            // 
         }
     }
 }

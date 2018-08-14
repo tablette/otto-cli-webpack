@@ -3,9 +3,10 @@
         <h1>Quick Start</h1>
         <Navbar />
         <p class="spacer-gentop"></p>
-        <p>What would you like to do?</p>
-        <router-link to="/create">Create a new taxonomy</router-link>  
-        <router-link to="/update">Update an existing taxonomy</router-link>  
+        <p>Let's go!</p>
+        <router-link to="/create">Create a new taxonomy</router-link>
+        <!-- <router-link to="/update">Update an existing taxonomy</router-link> --><!-- this makes no sense as a quickstart option except to experiment with localstorage -->
+        <!-- at least +1 option - else the user should be taken straight to Create -->
     </div>
 </template>
 
@@ -19,7 +20,7 @@ export default {
     },
     data(){
         return{
-
+            // 
         }
     }
 }

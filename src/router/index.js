@@ -1,11 +1,8 @@
-// import infrastructure stuff below
+// **** IMPORT **** //
+// infrastructure
 import Vue from 'vue'
-// existing otto code import >>>
-// import App from './App.vue' // not working, may not be nec
-// <<< existing otto code import
 import Router from 'vue-router'
-
-// import components you need
+// components
 import Home from '@/components/Home'
 import About from '@/components/About'
 import Blog from '@/components/Blog'
@@ -19,8 +16,7 @@ import TypeIn from '@/components/TypeIn'
 import Scrape from '@/components/Scrape'
 import Import from '@/components/Import'
 
-// existing otto code filter >>> 
-// create global filter
+// global filter (is used on rvws)
 Vue.filter('snippet', value => { // snippet being post.title
   if(!value || typeof(value) != 'string') return ''
   // we need a val - 1st tests whether there is any value at all
@@ -35,19 +31,8 @@ Vue.filter('snippet', value => { // snippet being post.title
   return value // and pass them back
   // some are shorter because they're shorter than 20 chars.
 })
-// <<< existing otto code filter
 
-// existing otto code for new vue >>>
-// new Vue({ // seems to be handled differently now
-//   el: '#app',
-//   render: h => h(App)
-// })
-// <<< existing otto code for new vue
-
-
-
-// NEW ROUTING MAGIC BELOW
-
+// **** ROUTING **** //
 Vue.use(Router)
 
 export default new Router({

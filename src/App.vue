@@ -2,32 +2,6 @@
   <div id="app">
     <!-- when we request a certain page this is where that component is loaded in --><!-- routes are set up in index.js in router folder -->
     <router-view/>
-
-
-
-    <!-- <div id="import" class="content-block">
-        <h2>Import from a file</h2>            
-        <p>{{ apology }}</p>
-        <p><a :href="backToCreate">Go back</a></p>
-        <p><a :href="top">Top</a></p>
-    </div>
-
-    <div id="scrape" class="content-block">
-        <h2>Scrape from a site</h2>            
-        <p>{{ apology }}</p>
-        <p><a :href="backToCreate">Go back</a></p>
-        <p><a :href="top">Top</a></p>
-    </div>
-
-    <div id="edit" class="content-block">
-        <h2>Edit an existing taxonomy</h2>            
-        <p>{{ apology }}</p>
-        <p><a :href="backToGettingStarted">Go back</a></p>
-        <p><a :href="top">Top</a></p>
-    </div> -->
-            
-    <p><a :href="top">Top</a></p>
-
   </div>
 </template>
 
@@ -41,37 +15,10 @@ export default {
   },
   data () {
     return {
-      // title: "otto",
-      tagline: "make finding content easy",
-      description: "OTTO is a tool to help you develop a taxonomy to apply to the information architecture of your website to enhance the browse navigation experience of the website for the end user.",
-      apology: `Sorry, we haven't learned that trick yet.`, // add html elements - include link to top
-      top: '#app',
-      // backToGettingStarted: '#getting-started',
-      // backToCreate: '#create',
-      // categories: [],
-      // labels: [],
-      // includesCategories: false,
-      // doesNotIncludeCategories: true,
-      rvws: [],
-      searchTerm: '',
-      // searchTermCat: '',
-      // searchTermLab: ''
+      /* use */ apology: `Sorry, we haven't learned that trick yet.`
     }
   },
   methods: {
-    // // for greeting on landing
-    // greet(){
-    //     let date = new Date();
-    //     let hour = date.getHours();
-    //     if (hour < 12) {
-    //         tod = 'morning';
-    //     } else if (hour < 18) {
-    //         tod = 'afternoon';
-    //     } else {
-    //         tod = 'evening';
-    //     }
-    //     return `Good ${tod}! Let's go.`
-    // },
     // // just for quick access to ready-made event properties
     // logEvent(e){ // e = optional parameter: event object - call whatever you want e.g. e OR evt OR event
     //     console.log(e);
@@ -98,6 +45,8 @@ export default {
 </script>
 
 <style>
+
+/* NOTE: You can add "scoped" attribute to opening style tag limit CSS to this component only */
 
 /* CSS RESET */
 

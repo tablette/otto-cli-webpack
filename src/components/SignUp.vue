@@ -3,7 +3,6 @@
         <h1>Sign Up</h1>
         <Navbar />
         <!-- <p class="spacer-gentop"></p> -->
-        <!-- <p>{{ greet() }}</p> -->
         <p class="spacer-gentop"></p>
         <p>
             First name
@@ -13,13 +12,10 @@
             Last name
             <input type="text" v-model="nameL">
         </p>
-            
-        <!-- <p>
-            Username
-            <input type="text" v-model="username">
-        </p> -->
+        <!-- user auth: auto-assign username? -->
         <button type="submit">sign me up</button>
-        <p>Hi, {{ nameF }}! We're glad you're here.</p>
+        <!-- <p>{{ greet() }}</p> --><!-- make america greet again -->
+        <p>Hi, {{ nameF }}! We're glad you're here.</p><!-- ideally, show this only when the user signs up -->
     </div>
 </template>
 
@@ -33,10 +29,23 @@ export default {
     },
     data(){
         return{
-
             nameF: 'First Name',
             nameL: 'Last Name',
         }
+    },
+    methods: {
+        // greet(){
+        //     let date = new Date();
+        //     let hour = date.getHours();
+        //     if (hour < 12) {
+        //         tod = 'morning';
+        //     } else if (hour < 18) {
+        //         tod = 'afternoon';
+        //     } else {
+        //         tod = 'evening';
+        //     }
+        //     return `Good ${tod}!`
+        // }
     }
 }
 </script>

@@ -13,7 +13,7 @@
     </div>
 
     <!-- top nav, but btm (below hero image) -->
-    <div class="topnav" id="btm">
+    <div class="topnav" id="btmnav">
         <router-link to="/quickstart">Quick Start</router-link>
     </div>
 

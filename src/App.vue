@@ -46,9 +46,23 @@ export default {
 
 <style>
 
-/* NOTE: You can add "scoped" attribute to opening style tag limit CSS to this component only */
+/*
+  ========================================
+  Notes
+  ========================================
+*/
 
-/* CSS RESET */
+/* You can add "scoped" attribute to opening style tag in any component to limit CSS to that component. However, Please use classes rather than scoped style wherever possible. */
+
+/*
+  ========================================
+  ========================================
+  ========================================
+  CSS Reset
+  ========================================
+  ========================================
+  ========================================
+*/
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -99,20 +113,23 @@ table {
 	border-spacing: 0;
 }
 
-/*  */
-/*  */
-/*  */
+/*
+  ========================================
+  ========================================
+  ========================================
+  OTTO Styles
+  ========================================
+  ========================================
+  ========================================
+*/
 
-/* VUE JS CTRL DIV */
+/*
+  ========================================
+  General
+  ========================================
+*/
 
-/* #app { */
-    /* margin: 0 auto; */
-    /* text-align: center; */
-/* } */
-
-/* GENERAL QUICK AND DIRTY STYLING */
-
-body {
+#app {
     font-family: sans-serif;
     font-size: 1em;
     line-height: 2em;
@@ -122,12 +139,7 @@ body {
 h1 {
     font-size: 2em;
     line-height: 2em;
-    color: #ff4c4c; 
-    padding: 0; 
-    /* text-align: center; */
-    vertical-align: middle;
-    width: 100%;
-    width: 40%;
+    color: #05B2DC; 
 }
 
 h2 {
@@ -144,136 +156,32 @@ h3 {
 ul {
     list-style-type: square;
     list-style-position: inside;
-    text-align: left;
-    /* width: 50%; */
+    /* text-align: left; */
 }
 
-.inline-block h2 {
-    display: inline;
-}
-
-.spacer-gentop {
-    margin-top: 3em;
-}
-.spacer-bottom {
-    margin-bottom: 3em;
-}
-
-/* GLOBAL NAV */
-
-.topnav {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  .topnav a,
-  .topnav ul li {
-    float: right;
-    color: #0EBFE9;
-    /* text-align: center; */
-    padding: 1% 3%;
-    text-decoration: none;
-    font-size: 1em;
-  }
-  
-  .topnav a:hover,
-  .topnav ul li:hover {
-    background-color: #ff4c4c;
-    color: white;
-  }
-  
-  .topnav a.active,
-  .topnav ul li.active {
-    background-color: #ff4c4c;
-    color: white;
-    font-size: 1.9em;
-    float: left;
-  }
-
-  #btm a,
-  #btm ul li {
-    display: inline-block;
-    float: none;
-    text-align: center;
-    width: 100%;
-  }
-
-/* HERO IMG */
-
-.hero { /* not working */
-    position: relative;
-    background-color: #0EBFE9;
-    padding-bottom: 33%;
-    /* margin: 0 auto; */
-    /* width: 100%;
-    height: 75%;
-    color: white;
-    background-color: blue;
-    position: relative;
-    left: 10%;
-    top: 60%; */
-    /* background: url("dog.jpg") no-repeat;
-    background-size: cover;
-    background-color: rgba(0, 0, 0, 0.7);
-    background-blend-mode: lighten; */
-}
-
-.hero h2 {
-    padding: 1%;
-    font-size: 1.5em;
-    text-align: center;
-    /* top: 5%;
-    left: 5%;
-    transform: translateX(-5%);
-    transform: translateY(-5%); */
-    /* width: 60%; */
-    color: white;
-}
-
-.content-block input {
-    display: block;
-    width: 33%;
-    /* margin: 1% auto; */
-}
-
-/* DEMO */
 button {
     background-color: #333;
     border: none;
     color: white;
-    /* padding: 0.4em 0.5em; */
-    padding: 5px 10px; /* make responsive */
-    /* text-align: center; */
+    padding: 0.5em 1em;
     text-decoration: none;
-    display: inline-block;
     font-size: 1em;
-    /* margin: 0.5em 0.4em; */
-    margin: 10px 5px; /* make responsive */
+    margin: 1% 0;
     cursor: pointer;
 }
 
-/* CREATE A NEW TAXONOMY */
-.content-block { /* not sure why but vue does not seem to like this cls */
-    width: 90%;
-    /* height: 100%; *//* seems to just fix the width and make it inflexible */
-    margin: 100% 0;
-    padding: 1%;
-    background-color: #C0C0C0;
-}
-
-.content-block p {
-    text-align: left;
-}
-
-.typein-input {
-    margin-left: 0;
+.spacer-gentop { /* do not keep these */
     margin-top: 3%;
-    display: block;
+}
+.spacer-bottom { /* do not keep these */
+    margin-bottom: 3%;
 }
 
-.typein-list {
-    list-style-type: none;
-}
+/*
+  ========================================
+  Chips
+  ========================================
+*/
 
 .chip {
     display: block;
@@ -292,13 +200,92 @@ button {
     display: inline-block;    
 }
 
+/*
+  ========================================
+  Global Navigation
+  ========================================
+*/
+
+.topnav {
+    overflow: hidden;
+    background-color: #031a6b;
+  }
+  
+  .topnav a, /* router-link interpreted as a */
+  .topnav ul li {
+    float: right;
+    color: #05B2DC;
+    padding: 1% 3%;
+    text-decoration: none;
+  }
+  
+  .topnav a:hover,
+  .topnav ul li:hover {
+    background-color: #05B2DC;
+    color: white;
+  }
+  
+  .topnav a.active,
+  .topnav ul li.active {
+    background-color: #05B2DC;
+    color: white;
+    font-size: 2em;
+    float: left;
+  }
+
+  #btmnav a,
+  #btmnav ul li {
+    display: inline-block;
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+
+/*
+  ========================================
+  Hero Image
+  ========================================
+*/
+
+.hero {
+    background-color: #333;
+    padding-bottom: 33%; /* temp to enlarge area */
+    /* add img */
+    background-size: cover;
+}
+
+.hero h2 {
+    padding: 1%;
+    text-align: center;
+    color: white;
+}
+
+/*
+  ========================================
+  Create a New Taxonomy / Update an Existing Taxonomy
+  ========================================
+*/
+
+/* resume CSS cleanup here */
+
+.typein-input {
+    margin-left: 0;
+    margin-top: 3%;
+    display: block;
+}
+
+.typein-list {
+    list-style-type: none;
+}
+
 .cat {
-    background-color: #ff4c4c;
+    background-color: #031a6b;
+    color: white;
     font-weight: 600;
 }
 
 .lab {
-    background-color: #0EBFE9;
+    background-color: #05B2DC;
     color: white;
 }
 
@@ -331,21 +318,19 @@ button {
     width: 300px;
     height: 300px;
     /* margin: 1% auto; */
-    background-color: #0EBFE9;
+    background-color: #05B2DC;
 }
 
 .one {
-    color: #0EBFE9;
+    color: #05B2DC;
 }
 
 .two {
     text-decoration: line-through;
 }
 
-/* tips */
-    /* softish red // hex code - #ff4c4c */
-    /* bright blue // hex code - #0EBFE9 / rgb code - (14, 191, 233) */
-    /* to center */
-        /* left: 50%; */
-        /* transform: translateX(-50%); */
+/* see palette */
+/* to center:
+    left: 50%;
+    transform: translateX(-50%); */
 </style>

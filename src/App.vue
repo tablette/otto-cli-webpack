@@ -129,28 +129,48 @@ table {
   ========================================
 */
 
+body,
 #app {
-    font-family: sans-serif;
+    font-family: 'Arvo', sans-serif;
     font-size: 1em;
     line-height: 2em;
-    margin: 1%;
+    /* margin: 1%; */
+    height: 100%;
+}
+.about {
+    height: 100%;
+}
+
+.content {
+    margin: 3% 1%;
+    height: 100%;
+}
+
+.content p {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.content li {
+    list-style-type: none;
 }
 
 h1 {
     font-size: 2em;
     line-height: 2em;
-    color: #05B2DC; 
+    color: #05B2DC;
+    text-align: center; 
 }
 
 h2 {
     font-size: 1.5em;
     line-height: 1.5em;
     color: #333;
+    margin-top: 3%;
 }
 
 h3 {
     text-align: left;
-    margin: 3% 0;
 }
 
 ul {
@@ -163,18 +183,26 @@ button {
     background-color: #333;
     border: none;
     color: white;
-    padding: 0.5em 1em;
+    /* padding: 0.5em 1em; */
     text-decoration: none;
     font-size: 1em;
-    margin: 1% 0;
+    /* margin: 1% 0; */
     cursor: pointer;
+}
+
+button, input {
+    height: 2em;
+    margin: 3% 1%;
+    vertical-align: middle;
 }
 
 .spacer-gentop { /* do not keep these */
     margin-top: 3%;
+    padding-top: 3%;
 }
 .spacer-bottom { /* do not keep these */
     margin-bottom: 3%;
+    padding-bottom: 3%;
 }
 
 /*
@@ -202,7 +230,7 @@ button {
 
 /*
   ========================================
-  Global Navigation
+  Header / Global Navigation
   ========================================
 */
 
@@ -213,6 +241,7 @@ button {
   
   .topnav a, /* router-link interpreted as a */
   .topnav ul li {
+    font-size: 1em; /* why not otherwise inherited? */
     float: right;
     color: #05B2DC;
     padding: 1% 3%;
@@ -243,21 +272,61 @@ button {
 
 /*
   ========================================
+  Footer - Contact / Copyright
+  ========================================
+*/
+
+#footer {
+    background-color: #031a6b;
+    overflow: hidden;
+    position: fixed;
+    /* top: 0; */
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#footer a {
+    text-decoration: none;
+    color: #05B2DC;
+}
+
+#footer p {
+    color: white;
+}
+
+.footer-l {
+    float: left;
+    margin-left: 1%;
+}
+
+.footer-r {
+    float: right;
+    margin-right: 1%;
+}
+
+/*
+  ========================================
   Hero Image
   ========================================
 */
 
 .hero {
-    background-color: #333;
-    padding-bottom: 33%; /* temp to enlarge area */
-    /* add img */
+    width: 100%;
+    /* height: 25%; */
+    /* padding-bottom: 50%; */
+    height: 50vh;
+    background-repeat: no-repeat, repeat;
+    background-image: url("assets/desk2.jpg");
+    background-color: rgba(0, 0, 0, .3);
     background-size: cover;
 }
 
-.hero h2 {
+.hero h1 {
     padding: 1%;
     text-align: center;
-    color: white;
+    color: #031a6b;
+    height: 100%;
 }
 
 /*
@@ -265,14 +334,6 @@ button {
   Create a New Taxonomy / Update an Existing Taxonomy
   ========================================
 */
-
-/* resume CSS cleanup here */
-
-.typein-input {
-    margin-left: 0;
-    margin-top: 3%;
-    display: block;
-}
 
 .typein-list {
     list-style-type: none;
@@ -287,46 +348,35 @@ button {
 .lab {
     background-color: #05B2DC;
     color: white;
+    font-weight: 300;
 }
 
 .editbtn {
     padding-left: 10px;
-    /* font-weight: bold; */
-    font-size: 1em;
     cursor: pointer;
 }
 
-.editbtn:hover {
-    color: #000;
+.cat .editbtn:hover {
+    color: #05b2dc;
+}
+
+.lab .editbtn:hover {
+    color: #031a6b;
 }
 
 .closebtn {
     padding-left: 10px;
-    /* font-weight: bold; */
     float: right;
     font-size: 1em;
     cursor: pointer;
 }
 
-.closebtn:hover {
-    color: #000;
+.cat .closebtn:hover {
+    color: #05b2dc;
 }
 
-/* SUNDRY */
-
-.canvas {
-    width: 300px;
-    height: 300px;
-    /* margin: 1% auto; */
-    background-color: #05B2DC;
-}
-
-.one {
-    color: #05B2DC;
-}
-
-.two {
-    text-decoration: line-through;
+.lab .closebtn:hover {
+    color: #031a6b;
 }
 
 /* see palette */

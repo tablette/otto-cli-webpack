@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
     
     <!-- top nav -->
     <div id="header">
@@ -8,39 +7,44 @@
     </div>
 
     <!-- hero -->
+
     <div class="hero">
-        <h2>{{ tagline }}</h2>
+        <h1>{{ tagline }}</h1>
     </div>
 
     <!-- top nav, but btm (below hero image) -->
-    <div class="topnav" id="btmnav">
+    <!-- <div class="topnav" id="btmnav">
         <router-link to="/quickstart">Quick Start</router-link>
-    </div>
+    </div> -->
 
-    <!-- blurb -->
-    <h3>{{ blurb }}</h3>
+    <div class="content">
+        <!-- blurb -->
+        <h3>{{ blurb }}</h3>
     
-    <!-- reviews - dummy data - ideally component - <Reviews /> -->
-    <div class="reviews">
-        <h2>What people are saying about OTTO:</h2>
-        <input type="text" v-model="searchTerm">
-        <p> search reviews </p>
-        <div v-for="rvw in filteredRvws" :key="rvw.id">
-            <h3 class="rvw-title chip cat">{{ rvw.title }}</h3>
-            <h3 class="rvw-body chip lab">{{ `${rvw.body} ${rvw.body} ${rvw.body}` | snippet }}</h3>
+        <!-- reviews - dummy data - ideally component - <Reviews /> -->
+        <div class="reviews">
+            <h2>What people are saying about OTTO:</h2>
+            <input type="text" v-model="searchTerm">
+            <span>search reviews</span>
+            <div v-for="rvw in filteredRvws" :key="rvw.id">
+                <h3 class="rvw-title chip cat">{{ rvw.title }}</h3>
+                <h3 class="rvw-body chip lab">{{ `${rvw.body} ${rvw.body} ${rvw.body}` | snippet }}</h3>
+            </div>
         </div>
     </div>
+    <Footer /> 
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export default {
     name: 'Home',
     components: {
-        Navbar
+        Navbar, Footer
     },
     data () {
         return {

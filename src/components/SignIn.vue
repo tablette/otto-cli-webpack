@@ -1,27 +1,28 @@
 <template>
     <div class="sign-in">
-        <h1>Sign In</h1>
         <Navbar />
-        <p class="spacer-gentop"></p>
-        <p>
-            Username
-            <input type="text" :value="username">
-        </p>
-        <p>
-            Password
-            <input type="text" :value="password">
-        </p>
-        <button type="submit">sign me in</button>
+        <div class="content">
+            <h1>Sign In</h1>
+            <p>
+                Username
+                <input type="text" :value="username">
+                Password
+                <input type="text" :value="password">
+                <button type="submit">Sign In</button>
+            </p>
+        </div>
+    <Footer />
     </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export default {
     name: 'SignIn',
     components: {
-        Navbar
+        Navbar, Footer
     },
     data(){
         return{

@@ -4,7 +4,6 @@
         <div class="content">
             <h1>Import from a File</h1>
         
-            <p class="spacer-gentop"></p>
             <p>Sorry, we haven't learned that trick yet.</p><!-- ideally, pass down apology -->
         </div>
     <Footer />

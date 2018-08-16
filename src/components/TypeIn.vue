@@ -4,8 +4,9 @@
         <div class="content">
         
             <h1>Type in OTTO Directly</h1>
+            <p>Type in your website's existing categories and labels.<button v-on:click="toggle">{{ toggleButton }}</button></p>
+            <p class="chip lab">{{ more }}</p>
             
-            <p class="spacer-gentop"></p>
             
             <div id="typein">
                 
@@ -15,10 +16,6 @@
                 <div>
                     <input v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
                 </div>
-
-                <p class="spacer-gentop"></p>
-                <p class="spacer-gentop"></p>
-                <p class="spacer-gentop"></p>
                 
                 <!-- all categories -->
                 <div :categories="categories" :editItem="editItem"> <!-- borken >>> @nbr="showNumber" -->
@@ -65,6 +62,56 @@
                 </div>
             </div>
         </div>
+    
+    <!-- test dragula --><!-- this works, so don't touch it and revert to this plus data "colOne: ['Dooney', 'Mokie']" prn -->
+        <!-- <div class="wrapper"> -->
+        <!-- <div class="container" v-dragula="colOne" bag="first-bag"> -->
+            <!-- with click -->
+            <!-- <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div> -->
+        <!-- </div> -->
+        <!-- <div class="container" v-dragula="colTwo" bag="first-bag"> -->
+            <!-- <div v-for="text in colTwo" :key="text">{{text}}</div> -->
+        <!-- </div> -->
+        <!-- </div> -->
+    <!-- test dragula -->
+
+    <!-- real dragula -->
+        <p>Card 1</p>
+        <div class="wrapper">
+            <div class="container" v-dragula="colOne" bag="first-bag">
+            <!-- with click -->
+                <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div>
+            </div>
+            <div class="container" v-dragula="colTwo" bag="first-bag">
+                <div v-for="text in colTwo" :key="text">{{text}}</div>
+            </div>
+        </div>
+
+        <p>Card 2</p>
+        <div class="wrapper">
+            <div class="container" v-dragula="colOne" bag="first-bag">
+            <!-- with click -->
+                <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div>
+            </div>
+            <div class="container" v-dragula="colTwo" bag="first-bag">
+                <div v-for="text in colTwo" :key="text">{{text}}</div>
+            </div>
+        </div>
+
+        <p>Card 3</p>
+        <div class="wrapper">
+            <div class="container" v-dragula="colOne" bag="first-bag">
+            <!-- with click -->
+                <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div>
+            </div>
+            <div class="container" v-dragula="colTwo" bag="first-bag">
+                <div v-for="text in colTwo" :key="text">{{text}}</div>
+            </div>
+        </div>
+    <!-- real dragula -->
+
+    <p class="spacer-bottom"></p>
+    
     <Footer />
     </div>
 </template>
@@ -85,6 +132,10 @@ export default {
             labels: [],
             searchTermCat: '',
             searchTermLab: '',
+            toggleButton: 'More',
+            more: ``, 
+            colOne: ['Dooney', 'Mokie'],
+            colTwo: ['Tiny', 'Bubba']
             // includesCategories: false,
             // doesNotIncludeCategories: true,
         }
@@ -112,6 +163,15 @@ export default {
         editItem(){ // to edit a category or label // ideally, should be more sophisticated
             let editedText = prompt("Change to:");
             return editedText;
+        },
+        toggle(event){
+           if (this.more === ``) {
+               this.more = `Categories are global navigation items. These are present on every page of your site. Labels are local navigation items. These are visible only on the page of their corresponding global navigation item. If you are not sure whether you want an item to be a category or a label, make it a label. If you are not sure whether you want any of the items to be categories or labels, make them all labels.`
+               this.toggleButton = "Hide"
+            } else {
+                this.more = ``
+                this.toggleButton = "More"
+            }
         }
         // showNumber(payload){ // for ordered lists // is borken
         //     console.log(payload + 1)

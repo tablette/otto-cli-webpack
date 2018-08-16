@@ -4,10 +4,11 @@
         <div class="content">
             <h1>Quick Start</h1>
             
-            <p class="spacer-gentop"></p>
             <p>Let's go!</p>
-            <router-link to="/create">Create a new taxonomy</router-link>
-            <!-- <router-link to="/update">Update an existing taxonomy</router-link> --><!-- this makes no sense as a quickstart option except to experiment with localstorage -->
+            <ul>
+                <li><router-link to="/create">Create a new taxonomy</router-link></li>
+                <li><router-link to="/update">Update an existing taxonomy</router-link></li>                <!-- this makes no sense as a quickstart option except to experiment with localstorage -->
+            </ul>
             <!-- at least +1 option - else the user should be taken straight to Create -->
         </div>
     <Footer />

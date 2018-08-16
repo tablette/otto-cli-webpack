@@ -147,8 +147,8 @@ body,
 }
 
 .content p {
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .content li {
@@ -192,7 +192,7 @@ button {
 
 button, input {
     height: 2em;
-    margin: 3% 1%;
+    margin: 1%;
     vertical-align: middle;
 }
 
@@ -201,8 +201,8 @@ button, input {
     padding-top: 3%;
 }
 .spacer-bottom { /* do not keep these */
-    margin-bottom: 3%;
-    padding-bottom: 3%;
+    margin-bottom: 6%;
+    padding-bottom: 6%;
 }
 
 /*
@@ -284,11 +284,12 @@ button, input {
     bottom: 0;
     right: 0;
     left: 0;
+    padding: 1% 3%;
 }
 
 #footer a {
     text-decoration: none;
-    color: #05B2DC;
+    color: #05b2dc;
 }
 
 #footer p {
@@ -298,7 +299,10 @@ button, input {
 .footer-l {
     float: left;
     margin-left: 1%;
+    color: white;
 }
+
+
 
 .footer-r {
     float: right;
@@ -317,7 +321,7 @@ button, input {
     /* padding-bottom: 50%; */
     height: 50vh;
     background-repeat: no-repeat, repeat;
-    background-image: url("assets/desk2.jpg");
+    background-image: url("assets/desk.jpg");
     background-color: rgba(0, 0, 0, .3);
     background-size: cover;
 }
@@ -377,6 +381,23 @@ button, input {
 
 .lab .closebtn:hover {
     color: #031a6b;
+}
+
+/*
+  ========================================
+  Dragula
+  ========================================
+*/
+/* .container {
+    background-color: black;
+} */
+
+/* .wrapper {
+    color: white;
+} */
+
+.container {
+    background-color: yellow;
 }
 
 /* see palette */

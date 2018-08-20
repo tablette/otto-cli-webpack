@@ -270,6 +270,10 @@ button, input {
     width: 100%;
   }
 
+a.router-link-exact-active {
+    background-color: white;
+}
+
 /*
   ========================================
   Footer - Contact / Copyright

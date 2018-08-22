@@ -143,6 +143,7 @@ body,
 
 .content {
     margin: 3% 1%;
+    margin-bottom: 3em;
     height: 100%;
 }
 
@@ -282,13 +283,14 @@ a.router-link-exact-active {
 
 #footer {
     background-color: #031a6b;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: fixed;
     /* top: 0; */
     bottom: 0;
     right: 0;
     left: 0;
     padding: 1% 3%;
+    margin-top: 50px;
 }
 
 #footer a {
@@ -400,9 +402,9 @@ a.router-link-exact-active {
     color: white;
 } */
 
-.container {
+/* .container {
     background-color: yellow;
-}
+} */
 
 /* see palette */
 /* to center:

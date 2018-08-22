@@ -63,53 +63,27 @@
             </div>
         </div>
     
-    <!-- test dragula --><!-- this works, so don't touch it and revert to this plus data "colOne: ['Dooney', 'Mokie']" prn -->
-        <!-- <div class="wrapper"> -->
-        <!-- <div class="container" v-dragula="colOne" bag="first-bag"> -->
-            <!-- with click -->
-            <!-- <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div> -->
-        <!-- </div> -->
-        <!-- <div class="container" v-dragula="colTwo" bag="first-bag"> -->
-            <!-- <div v-for="text in colTwo" :key="text">{{text}}</div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-    <!-- test dragula -->
+    <!-- test draggable -->
+        
+        <!-- draggable categories - this is not needed for now ; assume categories are fixed -->
+        <!-- <draggable class="drag-area drag-area-cats" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+            <div class="chip cat array1" v-for="(element, index) in categories" :key="index">{{element}}</div>
+        </draggable> -->
+        
+        <!-- dump labels to sort -->
+        <draggable class="drag-area drag-area-labs" v-model="labels" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+            <div class="chip lab array2" v-for="(element, index) in labels" :key="index">{{element}}</div>
+        </draggable>
 
-    <!-- real dragula -->
-        <p>Card 1</p>
-        <div class="wrapper">
-            <div class="container" v-dragula="colOne" bag="first-bag">
-            <!-- with click -->
-                <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div>
-            </div>
-            <div class="container" v-dragula="colTwo" bag="first-bag">
-                <div v-for="text in colTwo" :key="text">{{text}}</div>
-            </div>
+        <!-- create empty draggable components, each headed with a fixed category -->
+        <div v-for="(element, index) in categories" :key="index">
+            <h3>{{element}}</h3>
+            <draggable class="drag-area drag-area-empt" v-model="dummyLoop" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                <!-- dummy looping ??? i just want a series of empty components -->
+                <div v-for="(element) in dummyLoop" :key="element">{{element}}</div>
+                <!-- works fine, but get the contents of the dummyLoop array to go away once the first label is moved into the card-->
+            </draggable>
         </div>
-
-        <p>Card 2</p>
-        <div class="wrapper">
-            <div class="container" v-dragula="colOne" bag="first-bag">
-            <!-- with click -->
-                <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div>
-            </div>
-            <div class="container" v-dragula="colTwo" bag="first-bag">
-                <div v-for="text in colTwo" :key="text">{{text}}</div>
-            </div>
-        </div>
-
-        <p>Card 3</p>
-        <div class="wrapper">
-            <div class="container" v-dragula="colOne" bag="first-bag">
-            <!-- with click -->
-                <div v-for="text in colOne" @click="onClick" :key="text">{{text}} [click me]</div>
-            </div>
-            <div class="container" v-dragula="colTwo" bag="first-bag">
-                <div v-for="text in colTwo" :key="text">{{text}}</div>
-            </div>
-        </div>
-    <!-- real dragula -->
-
     <p class="spacer-bottom"></p>
     
     <Footer />
@@ -120,11 +94,12 @@
 // need to import axios to get showing numbers to work
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import draggable from 'vuedraggable'
 
 export default {
     name: 'TypeIn',
     components: {
-        Navbar, Footer
+        Navbar, Footer, draggable
     },
     data(){
         return {
@@ -134,8 +109,25 @@ export default {
             searchTermLab: '',
             toggleButton: 'More',
             more: ``, 
-            colOne: ['Dooney', 'Mokie'],
-            colTwo: ['Tiny', 'Bubba']
+            myArray1: [
+                {
+                    id: 1,
+                    name: 'Dooney'
+                 },
+                 {  id: 2,
+                    name: 'Mokie'
+                 }
+            ],
+            myArray2: [
+                {
+                    id: 3,
+                    name: 'Linda'
+                 },
+                 {  id: 4,
+                    name: 'Melissa'
+                 }
+            ],
+            dummyLoop: ['move labels here']
             // includesCategories: false,
             // doesNotIncludeCategories: true,
         }
@@ -152,7 +144,7 @@ export default {
         addCategory(event){
             this.categories.push(event.target.value) // push to categories array
             event.target.value = '' // clear input
-            // console.log("at least enter works") // test
+            // console.log(categories) // test
         },
         // adding - from an input element, add a label 
         addLabel(event){
@@ -172,6 +164,9 @@ export default {
                 this.more = ``
                 this.toggleButton = "More"
             }
+        },
+        onClick(){
+            console.log("dog")
         }
         // showNumber(payload){ // for ordered lists // is borken
         //     console.log(payload + 1)
@@ -195,5 +190,25 @@ export default {
 </script>
 
 <style>
-
+/* .array1 {
+    background: yellow;
+}
+.array2 {
+    background: green;
+} */
+.drag-area {
+    display: block;
+    min-height: 10px;
+}
+.drag-area-cats {
+    min-height: 10px;
+    background: yellow;
+}
+.drag-area-labs {    
+    min-height: 10px;
+    background: green;
+}
+.drag-area-empt {
+    background: orange;
+}
 </style>

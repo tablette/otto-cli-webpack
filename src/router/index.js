@@ -35,15 +35,10 @@ Vue.filter('snippet', value => { // snippet being post.title
 // **** ROUTING **** //
 Vue.use(Router)
 
-// dragula?
-
+// **** DRAGULA **** //
 // var Vue = require('vue');
 var VueDragula = require('vue-dragula');
-
 Vue.use(VueDragula);
-
-// dragula?
-
 
 
 export default new Router({

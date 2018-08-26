@@ -410,4 +410,6 @@ a.router-link-exact-active {
 /* to center:
     left: 50%;
     transform: translateX(-50%); */
+
+
 </style>

@@ -10,6 +10,7 @@
             
             <div id="typein">
                 
+                <!-- consider single input box, since the whole purpose is to sort the navigation items -->
                 <div>
                     <input v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
                 </div>
@@ -65,25 +66,47 @@
     
     <!-- test draggable -->
         
-        <!-- draggable categories - this is not needed for now ; assume categories are fixed -->
-        <!-- <draggable class="drag-area drag-area-cats" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+        <!-- dumped categories -->
+        <h1>Categories</h1>
+        <draggable class="drag-area drag-area-cats" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
             <div class="chip cat array1" v-for="(element, index) in categories" :key="index">{{element}}</div>
-        </draggable> -->
-        
-        <!-- dump labels to sort -->
+        </draggable>
+
+        <!-- dumped labels -->
+        <h1>Labels</h1>
         <draggable class="drag-area drag-area-labs" v-model="labels" :options="{group:'people'}" @start="drag=true" @end="drag=false">
             <div class="chip lab array2" v-for="(element, index) in labels" :key="index">{{element}}</div>
         </draggable>
 
-        <!-- create empty draggable components, each headed with a fixed category -->
-        <div v-for="(element, index) in categories" :key="index">
-            <h3>{{element}}</h3>
-            <draggable class="drag-area drag-area-empt" v-model="dummyLoop" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-                <!-- dummy looping ??? i just want a series of empty components -->
-                <div v-for="(element) in dummyLoop" :key="element">{{element}}</div>
-                <!-- works fine, but get the contents of the dummyLoop array to go away once the first label is moved into the card-->
-            </draggable>
-        </div>
+        <h1>Cards</h1>
+        
+        <!-- need to create cards programmatically based on number of categories or user crud ; just mocking up three for now -->
+        <!-- need to capture final card sort data in suitable data structures -->
+        <!-- need to push final card sort data to back end -->
+        <!-- need to style -->
+        <!-- need to show elements only when the user needs to see them -->
+        <!-- need to make at least bilingual probably changing data structure of cats/labs to objects -->
+        <!-- need to enable web-scraping -->
+        <!-- need to enable file import using lorilla tutorial -->
+
+        <!-- empty card 1 -->
+        <h1>Empty Card 1</h1>
+        <draggable class="drag-area" v-model="emptyCard1" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+            <div class="chip array1" v-for="(element, index) in emptyCard1" :key="index">{{element}}</div>
+        </draggable>
+
+        <!-- empty card 2 -->
+        <h1>Empty Card 2</h1>
+        <draggable class="drag-area" v-model="emptyCard2" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+            <div class="chip array1" v-for="(element, index) in emptyCard2" :key="index">{{element}}</div>
+        </draggable>
+
+        <!-- empty card 3 -->
+        <h1>Empty Card 3</h1>
+        <draggable class="drag-area" v-model="emptyCard3" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+            <div class="chip array1" v-for="(element, index) in emptyCard3" :key="index">{{element}}</div>
+        </draggable>
+
     <p class="spacer-bottom"></p>
     
     <Footer />
@@ -127,7 +150,12 @@ export default {
                     name: 'Melissa'
                  }
             ],
-            dummyLoop: ['move labels here']
+            cardLoop: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+            cardFillerLoop: ['', '', '', '', '', '', '', '', ''],
+            cards: [],
+            emptyCard1: [],
+            emptyCard2: [],
+            emptyCard3: [],
             // includesCategories: false,
             // doesNotIncludeCategories: true,
         }
@@ -145,6 +173,7 @@ export default {
             this.categories.push(event.target.value) // push to categories array
             event.target.value = '' // clear input
             // console.log(categories) // test
+            this.createCard() // run this function
         },
         // adding - from an input element, add a label 
         addLabel(event){
@@ -167,6 +196,12 @@ export default {
         },
         onClick(){
             console.log("dog")
+        },
+        createCard(){
+            console.log("you've called the function. now what?")
+            let newCard = 'newcard'
+            this.cards.push(newCard)
+            console.log(this.cards)
         }
         // showNumber(payload){ // for ordered lists // is borken
         //     console.log(payload + 1)
@@ -210,5 +245,23 @@ export default {
 }
 .drag-area-empt {
     background: orange;
+}
+.cards {
+    background: yellow;
+}
+.cardcat {
+    min-height: 10px;
+    background: goldenrod;
+}
+.cardlab {
+    min-height: 10px;
+    background: fuschia;
+}
+.testing {
+    min-height: 10px;
+    background: aquamarine;
+}
+.drag-area:first-line { /* styles as category */
+    color: red;
 }
 </style>

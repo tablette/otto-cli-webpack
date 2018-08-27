@@ -11,10 +11,10 @@
             <div id="typein">
                 
                 <!-- consider single input box, since the whole purpose is to sort the navigation items -->
-                <div>
+                <div class="input-field">
                     <input v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
                 </div>
-                <div>
+                <div class="input-field">
                     <input v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
                 </div>
                 
@@ -66,19 +66,24 @@
     
     <!-- test draggable -->
         
-        <!-- dumped categories -->
-        <h1>Categories</h1>
-        <draggable class="drag-area drag-area-cats" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-            <div class="chip cat array1" v-for="(element, index) in categories" :key="index">{{element}}</div>
-        </draggable>
+        <div class="card-container">
+            <!-- dumped categories -->
+            <div class="card-item">
+                <h1>Categories</h1>
+                <draggable class="drag-area drag-area-cats card" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                    <div class="chip cat array1" v-for="(element, index) in categories" :key="index">{{element}}</div>
+                </draggable>
+            </div>
 
-        <!-- dumped labels -->
-        <h1>Labels</h1>
-        <draggable class="drag-area drag-area-labs" v-model="labels" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-            <div class="chip lab array2" v-for="(element, index) in labels" :key="index">{{element}}</div>
-        </draggable>
-
-        <h1>Cards</h1>
+            <!-- dumped labels -->
+            <div class="card-item">
+                <h1>Labels</h1>
+                <draggable class="drag-area drag-area-labs card" v-model="labels" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                    <div class="chip lab array2" v-for="(element, index) in labels" :key="index">{{element}}</div>
+                </draggable>
+            </div>
+            <h1>Cards</h1>
+        </div>
         
         <!-- need to create cards programmatically based on number of categories or user crud ; just mocking up three for now -->
         <!-- need to capture final card sort data in suitable data structures -->
@@ -88,24 +93,33 @@
         <!-- need to make at least bilingual probably changing data structure of cats/labs to objects -->
         <!-- need to enable web-scraping -->
         <!-- need to enable file import using lorilla tutorial -->
+        <div class="card-container">
+            
+            <!-- empty card 1 -->
+            <div class="card-item">
+                <h1>Empty Card 1</h1>
+                <draggable class="drag-area card" v-model="emptyCard1" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                    <div class="chip array1" v-for="(element, index) in emptyCard1" :key="index">{{element}}</div>
+                </draggable>
+            </div>
 
-        <!-- empty card 1 -->
-        <h1>Empty Card 1</h1>
-        <draggable class="drag-area" v-model="emptyCard1" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-            <div class="chip array1" v-for="(element, index) in emptyCard1" :key="index">{{element}}</div>
-        </draggable>
+            <!-- empty card 2 -->
+            <div class="card-item">
+                <h1>Empty Card 2</h1>
+                <draggable class="drag-area card" v-model="emptyCard2" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                    <div class="chip array1" v-for="(element, index) in emptyCard2" :key="index">{{element}}</div>
+                </draggable>
+            </div>
 
-        <!-- empty card 2 -->
-        <h1>Empty Card 2</h1>
-        <draggable class="drag-area" v-model="emptyCard2" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-            <div class="chip array1" v-for="(element, index) in emptyCard2" :key="index">{{element}}</div>
-        </draggable>
+            <!-- empty card 3 -->
+            <div class="card-item">
+                <h1>Empty Card 3</h1>
+                <draggable class="drag-area card" v-model="emptyCard3" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                    <div class="chip array1" v-for="(element, index) in emptyCard3" :key="index">{{element}}</div>
+                </draggable>
+            </div>
 
-        <!-- empty card 3 -->
-        <h1>Empty Card 3</h1>
-        <draggable class="drag-area" v-model="emptyCard3" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-            <div class="chip array1" v-for="(element, index) in emptyCard3" :key="index">{{element}}</div>
-        </draggable>
+        </div>
 
     <p class="spacer-bottom"></p>
     
@@ -264,4 +278,21 @@ export default {
 .drag-area:first-line { /* styles as category */
     color: red;
 }
+.card {
+    min-height: 200px;
+    margin-left: 50px; 
+    margin-right: 50px;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* green line goes away! */
+input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]), input[type="password"]:not(.browser-default):focus:not([readonly]), input[type="email"]:not(.browser-default):focus:not([readonly]), input[type="url"]:not(.browser-default):focus:not([readonly]), input[type="time"]:not(.browser-default):focus:not([readonly]), input[type="date"]:not(.browser-default):focus:not([readonly]), input[type="datetime"]:not(.browser-default):focus:not([readonly]), input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), input[type="tel"]:not(.browser-default):focus:not([readonly]), input[type="number"]:not(.browser-default):focus:not([readonly]), input[type="search"]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid black;
+    -webkit-box-shadow: 0 1px 0 0 black;
+    box-shadow: 0 1px 0 0 black;
+}
+
 </style>

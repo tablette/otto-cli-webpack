@@ -65,25 +65,26 @@
         </div>
     
     <!-- test draggable -->
+    <div class="card-sort">
+         
+            <div class="card-container">
+                <!-- dumped categories -->
+                <div class="card-item">
+                    <h1>Categories</h1>
+                    <draggable class="drag-area drag-area-cats card" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                        <div class="chip cat array1" v-for="(element, index) in categories" :key="index">{{element}}</div>
+                    </draggable>
+                </div>
+                <!-- dumped labels -->
+                <div class="card-item">
+                    <h1>Labels</h1>
+                    <draggable class="drag-area drag-area-labs card" v-model="labels" :options="{group:'people'}" @start="drag=true" @end="drag=false">
+                        <div class="chip lab array2" v-for="(element, index) in labels" :key="index">{{element}}</div>
+                    </draggable>
+                </div>
+                
+            </div> <!-- end class card-container -->
         
-        <div class="card-container">
-            <!-- dumped categories -->
-            <div class="card-item">
-                <h1>Categories</h1>
-                <draggable class="drag-area drag-area-cats card" v-model="categories" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-                    <div class="chip cat array1" v-for="(element, index) in categories" :key="index">{{element}}</div>
-                </draggable>
-            </div>
-
-            <!-- dumped labels -->
-            <div class="card-item">
-                <h1>Labels</h1>
-                <draggable class="drag-area drag-area-labs card" v-model="labels" :options="{group:'people'}" @start="drag=true" @end="drag=false">
-                    <div class="chip lab array2" v-for="(element, index) in labels" :key="index">{{element}}</div>
-                </draggable>
-            </div>
-            <h1>Cards</h1>
-        </div>
         
         <!-- need to create cards programmatically based on number of categories or user crud ; just mocking up three for now -->
         <!-- need to capture final card sort data in suitable data structures -->
@@ -120,6 +121,7 @@
             </div>
 
         </div>
+    </div> <!-- end class card-sort -->
 
     <p class="spacer-bottom"></p>
     
@@ -287,6 +289,11 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+.card-sort {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
 
 /* green line goes away! */
 input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]), input[type="password"]:not(.browser-default):focus:not([readonly]), input[type="email"]:not(.browser-default):focus:not([readonly]), input[type="url"]:not(.browser-default):focus:not([readonly]), input[type="time"]:not(.browser-default):focus:not([readonly]), input[type="date"]:not(.browser-default):focus:not([readonly]), input[type="datetime"]:not(.browser-default):focus:not([readonly]), input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), input[type="tel"]:not(.browser-default):focus:not([readonly]), input[type="number"]:not(.browser-default):focus:not([readonly]), input[type="search"]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {

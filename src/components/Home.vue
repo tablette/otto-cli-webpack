@@ -24,7 +24,7 @@
         <!-- reviews - dummy data - ideally component - <Reviews /> -->
         <div class="reviews">
             <h2>What people are saying about OTTO:</h2>
-            <input type="text" v-model="searchTerm">
+            <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" type="text" v-model="searchTerm">
             <span>search reviews</span>
             <div v-for="rvw in filteredRvws" :key="rvw.id">
                 <h3 class="rvw-title chip cat">{{ rvw.title }}</h3>

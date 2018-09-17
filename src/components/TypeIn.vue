@@ -4,7 +4,7 @@
         <div class="content">
         
             <h1>Type in OTTO Directly</h1>
-            <p>Type in your website's existing categories and labels.<button v-on:click="toggle">{{ toggleButton }}</button></p>
+            <p>Type in your website's existing categories and labels.<button id="gc-catlab" v-on:click="toggle">{{ toggleButton }}</button></p>
             <p class="chip lab">{{ more }}</p>
             
             
@@ -12,10 +12,10 @@
                 
                 <!-- consider single input box, since the whole purpose is to sort the navigation items -->
                 <div class="input-field">
-                    <input v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
+                    <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" v-on:keyup.enter="addCategory">add <div class="chip cat mock-chip">category</div>
                 </div>
                 <div class="input-field">
-                    <input v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
+                    <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" v-on:keyup.enter="addLabel">add <div class="chip lab mock-chip">label</div>
                 </div>
                 
                 <!-- all categories -->
@@ -23,7 +23,7 @@
                     <div id="all-categories">
                         <h2>All Categories</h2>
                         <!-- cycle through cateogries -->
-                        <span><input type="text" v-model="searchTermCat"> filter </span>
+                        <span><input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" class="input-field" type="text" v-model="searchTermCat"> filter </span>
                         <div v-for="(cat, index) in filteredCats" :key="index">
                             <!-- and render to browser -->
                             <span class="chip cat">
@@ -45,7 +45,7 @@
                     <div id="all-labels">
                         <h2>All Labels</h2>
                         <!-- cycle through labels -->
-                        <span><input type="text" v-model="searchTermLab"> filter </span>
+                        <span><input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" class="input-field" type="text" v-model="searchTermLab"> filter </span>
                         <div v-for="(lab, index) in filteredLabs" :key="index">
                             <!-- and render to browser -->
                             <span class="chip lab">
@@ -253,11 +253,11 @@ export default {
 }
 .drag-area-cats {
     min-height: 10px;
-    background: yellow;
+    background: C0C0C0;
 }
 .drag-area-labs {    
     min-height: 10px;
-    background: green;
+    background: C0C0C0;
 }
 .drag-area-empt {
     background: orange;
@@ -296,10 +296,26 @@ export default {
 
 
 /* green line goes away! */
-input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]), input[type="password"]:not(.browser-default):focus:not([readonly]), input[type="email"]:not(.browser-default):focus:not([readonly]), input[type="url"]:not(.browser-default):focus:not([readonly]), input[type="time"]:not(.browser-default):focus:not([readonly]), input[type="date"]:not(.browser-default):focus:not([readonly]), input[type="datetime"]:not(.browser-default):focus:not([readonly]), input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), input[type="tel"]:not(.browser-default):focus:not([readonly]), input[type="number"]:not(.browser-default):focus:not([readonly]), input[type="search"]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+/* input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]), input[type="password"]:not(.browser-default):focus:not([readonly]), input[type="email"]:not(.browser-default):focus:not([readonly]), input[type="url"]:not(.browser-default):focus:not([readonly]), input[type="time"]:not(.browser-default):focus:not([readonly]), input[type="date"]:not(.browser-default):focus:not([readonly]), input[type="datetime"]:not(.browser-default):focus:not([readonly]), input[type="datetime-local"]:not(.browser-default):focus:not([readonly]), input[type="tel"]:not(.browser-default):focus:not([readonly]), input[type="number"]:not(.browser-default):focus:not([readonly]), input[type="search"]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid black;
     -webkit-box-shadow: 0 1px 0 0 black;
     box-shadow: 0 1px 0 0 black;
+} */
+
+#all-categories > span > input,
+#all-labels > span > input,
+#typein > .input-field > input {
+    border-bottom: 1px solid black;
+    -webkit-box-shadow: 0 1px 0 0 black;
+    box-shadow: 0 1px 0 0 black;
+}
+
+#gc-catlab {
+    background: #031a6b;
+}
+
+#gc-catlab:hover {
+    background: #05B2DC;
 }
 
 </style>

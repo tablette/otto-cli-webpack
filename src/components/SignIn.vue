@@ -5,9 +5,9 @@
             <h1>Sign In</h1>
             <p>
                 Username
-                <input type="text" :value="username">
+                <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" type="text" :value="username">
                 Password
-                <input type="text" :value="password">
+                <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" type="text" :value="password">
                 <button type="submit">Sign In</button>
             </p>
         </div>

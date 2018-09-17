@@ -255,6 +255,10 @@ button, input {
     color: white;
   }
   
+  .footer-l > a {
+      color: red;
+  }
+
   .topnav a.active,
   .topnav ul li.active {
     background-color: #05B2DC;

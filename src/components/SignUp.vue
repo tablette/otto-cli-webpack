@@ -5,9 +5,9 @@
             <h1>Sign Up</h1>
             <p>
                 First name
-                <input type="text" v-model="nameF">
+                <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" type="text" v-model="nameF">
                 Last name
-                <input type="text" v-model="nameL">
+                <input style="border-bottom: 1px solid black; -webkit-box-shadow: 0 1px 0 0 black; box-shadow: 0 1px 0 0 black;" type="text" v-model="nameL">
                 <button type="submit">Sign Up</button>
             </p>
             <!-- <p>{{ greet() }}</p> --><!-- make america greet again -->
